@@ -1,0 +1,17 @@
+FLORIFY — INSTALAÇÃO
+
+1. Coloque a pasta do projeto no diretório PHP do seu servidor local ou hospedagem.
+2. No phpMyAdmin, importe database.sql. O arquivo cria e seleciona o banco formulario e cria as tabelas usuario, produtos e pedido.
+3. Para ambiente local WAMP, config/db.php usa localhost, formulario, root e senha vazia por padrão. Para servidor, defina FLORIFY_DB_HOST, FLORIFY_DB_NAME, FLORIFY_DB_USER e FLORIFY_DB_PASS com as credenciais do banco.
+4. Abra index.php pelo servidor PHP.
+5. Cadastre uma conta pela página de cadastro.
+6. Para dar acesso administrativo à conta, abra o phpMyAdmin, selecione formulario, clique em SQL, abra promover_admin.sql, substitua SEU_EMAIL_AQUI pelo e-mail cadastrado e execute. A conta será promovida a ADMIN.
+7. Cadastre produtos no painel administrativo. O banco inicial não contém produtos nem usuários.
+
+VISUALIZAÇÃO COM IA
+
+A visualização com IA exige uma chave da API configurada no ambiente do servidor pela variável OPENAI_API_KEY. Não coloque a chave no código ou no GitHub. Se o ambiente PHP precisar de um arquivo de certificados CA específico, configure FLORIFY_CA_BUNDLE com o caminho desse arquivo. A validação SSL permanece habilitada.
+
+OBSERVAÇÕES
+
+O pedido é gravado no banco e o estoque é reduzido em transação. A etapa de pagamento é combinada com a loja pelo WhatsApp; não há gateway de cobrança integrado. As imagens cadastradas podem ser URL absoluta ou caminho relativo dentro da pasta do projeto.

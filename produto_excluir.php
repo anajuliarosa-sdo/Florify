@@ -1,0 +1,2 @@
+<?php
+require_once __DIR__.'/config/db.php'; exigir_admin(); $id=(int)($_GET['id']??0); if($id){$pdo->beginTransaction();try{$pdo->prepare('DELETE FROM pedido WHERE id_produto=?')->execute([$id]);$pdo->prepare('DELETE FROM produtos WHERE id_produto=?')->execute([$id]);$pdo->commit();}catch(Throwable $e){$pdo->rollBack();http_response_code(500);exit('Não foi possível excluir.');}}header('Location: admin.php');exit;
